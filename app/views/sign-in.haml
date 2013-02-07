@@ -1,0 +1,16 @@
+%h1 Inicio de sesión
+%form(accept-charset="UTF-8" method="post" action="/sign-in")
+  %fieldset
+    %legend Tus datos
+    .form-field
+      %label(for="session__email") Email
+      %input#session__email(type="text" name="session[email]" placeholder="Ingresá tu email" autofocus="autofocus")
+    .form-field
+      %label(for="session__password") Contraseña
+      %input#session__password(type="password" name="session[password]" placeholder="Ingresá tu contraseña")
+    .form-field
+      %input#session__remember_me(type="checkbox" name="session[remember_me]")
+      %label(for="session__remember_me") Recordar estos datos (en esta computadora, por #{@expire / 86400} días)
+  .form-actions
+    %button(type="submit") Iniciar sesión
+    %a(href="/password/recovery") ¿Olvidaste tu contraseña?

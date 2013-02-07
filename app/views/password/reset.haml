@@ -1,0 +1,17 @@
+%h1 Reestablecer contraseña
+- if @reset.errors.any?
+  %ul.errors
+    - @reset.errors.each do |attr, errs|
+      - errs.each do |err|
+        %li= @error_messages[attr][err]
+%form(accept-charset="UTF-8" method="post" action="/password/reset/#{@id}/#{@token}")
+  %fieldset
+    %legend Tus datos
+    .form-field{ class: "#{'error' if @reset.errors.has_key?(:password)}" }
+      %label(for="new_password") Nueva contraseña
+      %input#new_password(type="password" name="user[password]" placeholder="Ingresá una nueva" autofocus="autofocus"){ value: @reset.password }
+    .form-field{ class: "#{'error' if @reset.errors.has_key?(:password_confirmation)}" }
+      %label(for="password_confirmation") Confirmación
+      %input#password_confirmation(type="password" name="user[password_confirmation]" placeholder="Repetí la contraseña"){ value: @reset.password_confirmation }
+  .form-actions
+    %button(type="submit") Reestablecer

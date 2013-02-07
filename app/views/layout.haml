@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    %title= Settings::NAME
+    %meta(charset="UTF-8")
+    %meta(name="description"){ content: Settings::DESCRIPTION }
+    %meta(name="author"){ content: Settings::AUTHOR }
+    %link(rel="stylesheet" type="text/css" href="/css/styles.css")
+  %body
+    - [:success, :error].each do |type|
+      - if session[type]
+        %p= session.delete(type)
+    %a(href="/") Home
+    |
+    - if authenticated(User)
+      = current_user.email
+      |
+      %a(href="/sign-out") Cerrá sesión
+    - else
+      %a(href="/sign-in") Iniciá sesión
+      %a(href="/sign-up") ¿No tenés cuenta?
+    %hr
+    != yield

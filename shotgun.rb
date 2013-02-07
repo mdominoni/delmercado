@@ -1,0 +1,7 @@
+require 'haml'
+require 'malone'
+require 'ohm'
+require 'ohm/contrib'
+require 'scrivener'
+require 'shield'
+require 'sinatra'

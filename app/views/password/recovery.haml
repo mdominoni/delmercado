@@ -1,0 +1,9 @@
+%h1 Recuperación de contraseña
+%form(accept-charset="UTF-8" method="post" action="/password/recovery")
+  %fieldset
+    %legend Tus datos
+    .form-field
+      %label(for="user__email") Email
+      %input#user__email(type="text" name="email" value="" placeholder="Ingresá tu email" autofocus="autofocus")
+  .form-actions
+    %button(type="submit") Siguiente

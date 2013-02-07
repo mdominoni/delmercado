@@ -1,0 +1,16 @@
+%h1 Creá tu cuenta (es gratis)
+- if @user.errors.any?
+  %ul.errors
+    - errors_for(@user, @error_messages).each do |message|
+      %li= message
+%form(accept-charset="UTF-8" method="post" action="/sign-up")
+  %fieldset
+    %legend Tus datos
+    .form-field{ class: "#{'error' if @user.errors.has_key?(:email)}" }
+      %label(for="user__email") Email
+      %input#user__email(type="text" name="user[email]" placeholder="Ingresá tu email" autofocus="autofocus"){ value: @user.email }
+    .form-field{ class: "#{'error' if @user.errors.has_key?(:password)}" }
+      %label(for="user__password") Contraseña
+      %input#user__password(type="password" name="user[password]" placeholder="Ingresá tu contraseña"){ value: @user.password }
+  .form-actions
+    %button(type="submit") Crear cuenta

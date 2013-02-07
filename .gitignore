@@ -1,0 +1,22 @@
+# Configuration files
+# -------------------
+/config/env.sh
+/config/redis.conf
+
+# Logs, caches and debugging outputs
+# ----------------------------------
+*.log
+.sass-cache
+capybara-*.html
+
+# OS generated files
+# ------------------
+.DS_Store
+
+# Directories
+# -----------
+/tmp/*
+
+# Always track these files
+# ------------------------
+!.gitkeep
